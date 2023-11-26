@@ -1,0 +1,27 @@
+.card {
+    max-width: 400px;
+    background-size: cover;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+header{
+    margin-left: auto;
+    margin-right: auto;
+}
+.sticky {
+    background-size: cover;
+
+    border: 10px red;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+  }
+  .stickyb {
+    border: 10px red;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; 
+  }

@@ -1,0 +1,47 @@
+<div [class.sticky]="isSticky">
+    <header>
+    <input [(ngModel)]="searchTerm"  placeholder="Search...">
+    <button (click)="filterData()">Click</button>
+
+    <mat-form-field>
+        <mat-label>Filter by:</mat-label>
+        <mat-select [(ngModel)]="selectedFilter" (ngModelChange)="filterData1()">
+        <mat-option value="all">All</mat-option>
+        <mat-option value="gender">Gender</mat-option>
+        <mat-option value="availability">Availability</mat-option>
+        <mat-option value="domain">Domain</mat-option>
+        <!-- Add more options based on your data -->
+        </mat-select>
+    </mat-form-field>
+    </header>
+    <button (click)="showItems()">TEAM</button>
+</div>
+
+<div *ngFor="let item of filteredData" class="filteredData">
+    <mat-card class="card">
+        <mat-card-header>
+            <img mat-card-image src={{item.avatar}} alt={{item.avatar}} class="image">
+            <mat-card-title>{{item.id}}. {{item.first_name}} {{item.last_name}}</mat-card-title>
+            
+        </mat-card-header>
+        <!-- <mat-card-content>{{Data.id}}</mat-card-content>
+        <mat-card-content>{{Data.first_name}}</mat-card-content>
+        <mat-card-content>{{Data.last_name}}</mat-card-content> -->
+         <mat-card-content> Email  : {{item.email}}</mat-card-content>
+         <mat-card-content> Gender :{{item.gender}}</mat-card-content>
+         <mat-card-actions>
+            Domain : {{item.domain}}
+        </mat-card-actions>
+        <mat-card-actions>
+            Available : {{item.available}}
+        <button *ngIf="item.available" (click)="addToCart(item)">Add to Team</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div div [class.stickyb]="isSticky">
+    <mat-paginator [length]="totalData.length"
+                [pageSize]="20"
+                aria-label="Select page"
+                (page)="filterData()">
+    </mat-paginator>
+</div>

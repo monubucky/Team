@@ -1,0 +1,26 @@
+
+<div *ngFor="let Data of obs | async" class="allData">
+    <mat-card class="card">
+        <mat-card-header>
+            <img mat-card-image src={{Data.avatar}} alt={{Data.avatar}} class="image">
+            <mat-card-title>{{Data.id}}. {{Data.first_name}} {{Data.last_name}}</mat-card-title>
+            
+        </mat-card-header>
+        <!-- <mat-card-content>{{Data.id}}</mat-card-content>
+        <mat-card-content>{{Data.first_name}}</mat-card-content>
+        <mat-card-content>{{Data.last_name}}</mat-card-content> -->
+         <mat-card-content> Email  : {{Data.email}}</mat-card-content>
+         <mat-card-content> Gender :{{Data.gender}}</mat-card-content>
+         <mat-card-actions>
+            Domain : {{Data.domain}}
+        </mat-card-actions>
+        <mat-card-actions>
+            Available : {{Data.available}}
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<mat-paginator [length]="showData.length"
+              [pageSize]="20"
+              aria-label="Select page">
+</mat-paginator>
